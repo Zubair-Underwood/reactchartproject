@@ -1,5 +1,5 @@
 import './App.css';
-import { LineChart, Line, ResponsiveContainer } from 'recharts';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Legend, Tooltip } from 'recharts';
 const pdata = [
 
   {
@@ -43,8 +43,14 @@ function App() {
     <>
       <h1 className='chart-heading'>Line Chart</h1>
       <ResponsiveContainer width="100%" aspect={3}>
-        <LineChart data={pdata}>
-          <Line dataKey="student" />
+        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 150, left: 20, bottom: 5 }}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" interval={"preserveStartEnd"} tickFormatter={(value) => value + " Programming"} />
+          <YAxis />
+          <Tooltip contentStyle={{ backgroundColor: "yellow" }} />
+          <Legend />
+          <Line type="monotone" dataKey="student" stroke="red" activeDot={{ r: 5 }} />
+          <Line type="" dataKey="fees" stroke="green" activeDot={{ r: 5 }} />
         </LineChart>
       </ResponsiveContainer>
     </>
