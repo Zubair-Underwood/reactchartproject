@@ -1,25 +1,58 @@
-import logo from './logo.svg';
 import './App.css';
+import { LineChart, Line, ResponsiveContainer } from 'recharts';
+const pdata = [
+
+  {
+    name: 'Python',
+    student: 13,
+    fees: 10
+  },
+  {
+    name: 'JavaScript',
+    student: 15,
+    fees: 12
+  },
+  {
+    name: 'PHP',
+    student: 5,
+    fees: 10
+  },
+
+  {
+    name: 'Java',
+    student: 10,
+    fees: 5
+  },
+
+  {
+    name: 'C#',
+    student: 9,
+    fees: 4
+  },
+
+  {
+    name: 'JavaScript',
+    student: 10,
+    fees: 8
+  }
+
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className='chart-heading'>Line Chart</h1>
+      <ResponsiveContainer width="100%" aspect={3}>
+        <LineChart data={pdata}>
+          <Line dataKey="student" />
+        </LineChart>
+      </ResponsiveContainer>
+    </>
+
   );
 }
 
 export default App;
+
+
+
